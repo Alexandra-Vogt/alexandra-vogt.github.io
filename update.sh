@@ -7,4 +7,6 @@ do
     echo "creating srv/$(basename $file .md).html"
 done
 
-
+git add .
+git commit -m "update script run"
+git push -u origin master
