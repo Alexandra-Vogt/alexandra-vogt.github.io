@@ -5,7 +5,5 @@ body {
 
 .text {
     width: 80ch;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: auto;
 }
