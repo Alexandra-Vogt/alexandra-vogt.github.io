@@ -4,7 +4,9 @@ body {
 }
 
 .text {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     width: 80ch;
-    text-align: center;
     display: inline-block;
 }
