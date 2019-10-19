@@ -4,9 +4,8 @@ body {
 }
 
 .text {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
     width: 80ch;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
