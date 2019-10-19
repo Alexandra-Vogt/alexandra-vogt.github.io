@@ -4,5 +4,7 @@ body {
 }
 
 .text {
-    width: 40ch;
+    width: 80ch;
+    text-align: center;
+    display: inline-block;
 }
