@@ -2,7 +2,26 @@
 <html>
   <head>
     <title>Vogt's Blog</title>
-    </style>
+    <script>
+      function hasGetUserMedia() {
+	  return !!(navigator.mediaDevices &&
+		    navigator.mediaDevices.getUserMedia);
+      }
+
+      if (hasGetUserMedia()) {
+	  // Good to go!
+      } else {
+	  alert('getUserMedia() is not supported by your browser');
+      }
+
+      const constraints = {
+	  video: true
+      };
+      const video = document.querySelector('video');
+      navigator.mediaDevices.getUserMedia(constraints).then((stream) => {video.srcObject = stream});
+    </script>
   </head>
- <meta http-equiv="Refresh" content="0; url=https://docs.google.com/document/d/e/2PACX-1vSGz9W8FJMsFqacudu2FA6Ec-RsqrAPGBPRs-hXWKiAkf045sMQJIq9AqVEKa1Y5xrF3iUXcLpIAK0b/pub"/>
+  <body>
+      <video autoplay></video>
+  </body> 
 </html>
