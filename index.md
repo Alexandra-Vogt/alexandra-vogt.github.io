@@ -15,7 +15,8 @@ assembly can be elegant, beautiful even. Certainly it is worthy as a subject of 
 contemplation. Hence this blog.
 
 This blog will also serve to discuss other topics than the aesthetics of assembly language
-so those of us who are particularly faint of heart do not have to fear.
+so those of us who are particularly faint of heart do not have to fear. My goal is to update
+it daily, though that unfortunately may not always be possible.
 
 ___
 ## Diatribes:
