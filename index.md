@@ -18,8 +18,4 @@ This blog will also serve to discuss other topics than the aesthetics of assembl
 so those of us who are particularly faint of heart do not have to fear.
 
 ___
-## Tutorials:
-null
-
-___
 ## Diatribes:
