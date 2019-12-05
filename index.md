@@ -6,7 +6,7 @@ layout: home
 title: Home
 ---
 
-## Lasciate ogne speranza, voi ch’intrate.
+## Lasciate ogni speranza
 
 ...a rough description of the thought that comes to the mind of any sapient organism upon 
 entering any assembly language class for the first time. It is not an inaccurate thought, 
