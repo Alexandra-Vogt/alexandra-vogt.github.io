@@ -6,17 +6,19 @@ layout: home
 title: Home
 ---
 
-## About:
-Hi, would
+## Lasciate ogne speranza, voi ch’intrate.
 
-I am Alexandra Vogt, a programmer who loves bad code, bad jokes, and bad design. 
+...a rough description of the thought that comes to the mind of any sapient organism upon 
+entering any assembly language class for the first time. It is not an inaccurate thought, 
+though I would argue that, once the shackles of hope and sanity have been abandoned
+assembly can be elegant, beautiful even. Certainly it is worthy as a subject of aesthetic
+contemplation. Hence this blog.
+
+This blog will also serve to discuss other topics than the aesthetics of assembly language
+so those of us who are particularly faint of heart do not have to fear.
 
 ___
 ## Tutorials:
-null
-
-___
-## Reviews:
 null
 
 ___
