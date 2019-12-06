@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Thoughts on Theming
-last_update: 2019-12-15
+last_update: 2019-12-05
 ---
 
 Themes are what makes a program usable to the end user. A good theme will make the user
