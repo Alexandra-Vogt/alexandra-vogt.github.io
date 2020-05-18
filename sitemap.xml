@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://blog.vogt.systems/</loc>
+    <lastmod>2019-12-11T17:00:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.vogt.systems/posts/</loc>
+    <lastmod>2019-12-11T17:00:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.vogt.systems/posts/programmatic-beauty-i/</loc>
+    <lastmod>2019-12-11T17:00:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.vogt.systems/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.vogt.systems/tags/</loc>
+  </url>
+  
+</urlset>
