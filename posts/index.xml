@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Assembly Esthetician</title>
-    <link>https://blog.vogt.systems/posts/</link>
+    <link>blog.vogt.systems/posts/</link>
     <description>Recent content in Posts on Assembly Esthetician</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 Dec 2019 17:00:52 -0700</lastBuildDate>
     
-	<atom:link href="https://blog.vogt.systems/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="blog.vogt.systems/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Programmatic Beauty I</title>
-      <link>https://blog.vogt.systems/posts/programmatic-beauty-i/</link>
+      <link>blog.vogt.systems/posts/programmatic-beauty-i/</link>
       <pubDate>Wed, 11 Dec 2019 17:00:52 -0700</pubDate>
       
-      <guid>https://blog.vogt.systems/posts/programmatic-beauty-i/</guid>
+      <guid>blog.vogt.systems/posts/programmatic-beauty-i/</guid>
       <description>Assembly, Lisp, and Turing Machines I am sometimes overwhelmed by the sheer beauty of a concept in computer science to such a degree that I am moved to tears at points. To be totally honest it is probably this reaction to the beauty of computer science that makes me love learning more than any sort of pretense of productivity (though that matters too).
 In the interest of sharing the things I love with others I have created this little overview of the subjects that I find most beautiful and profound in computer science.</description>
     </item>

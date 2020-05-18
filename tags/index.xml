@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Assembly Esthetician</title>
-    <link>https://blog.vogt.systems/tags/</link>
+    <link>blog.vogt.systems/tags/</link>
     <description>Recent content in Tags on Assembly Esthetician</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://blog.vogt.systems/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="blog.vogt.systems/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
