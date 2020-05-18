@@ -3,26 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>blog.vogt.systems/</loc>
+    <loc>/</loc>
     <lastmod>2019-12-11T17:00:52-07:00</lastmod>
   </url>
   
   <url>
-    <loc>blog.vogt.systems/posts/</loc>
+    <loc>/posts/</loc>
     <lastmod>2019-12-11T17:00:52-07:00</lastmod>
   </url>
   
   <url>
-    <loc>blog.vogt.systems/posts/programmatic-beauty-i/</loc>
+    <loc>/posts/programmatic-beauty-i/</loc>
     <lastmod>2019-12-11T17:00:52-07:00</lastmod>
   </url>
   
   <url>
-    <loc>blog.vogt.systems/categories/</loc>
+    <loc>/categories/</loc>
   </url>
   
   <url>
-    <loc>blog.vogt.systems/tags/</loc>
+    <loc>/tags/</loc>
   </url>
   
 </urlset>
