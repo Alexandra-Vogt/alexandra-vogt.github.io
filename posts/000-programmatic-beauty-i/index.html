@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Programmatic Beauty I | blog.vogt.systems</title>
+
+  <meta name="author" content="" />
+
+  
+  <meta name="keywords" content="software engineering, lisp, emacs, guix, distributed computing, nixos, assembly">
+  
+
+  
+  <meta name="description" content="An overview of different programming concepts with an eye towards their beauty.">
+  
+
+  <meta name="generator" content="Hugo 0.70.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="/logo.png" rel="shortcut icon">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+
+  
+</head>
+
+<body>
+
+  <header>
+    <div class="left logo">
+      <h1><a href="/">Assembly Esthetician</a></h1>
+      <p>The writings of a lambdamancer gone rogue.</p>
+    </div>
+
+    
+<nav>
+  
+  <ul>
+    
+    
+
+    
+      <li><a href="https://vogt.systems/resume.pdf">Resume</a></li>
+    
+  </ul>
+  
+
+  
+  <ul>
+    
+      <li><a target="hugo_ext" href="https://twitter.com/asmesthetician">Twitter</a></li>
+    
+      <li><a target="hugo_ext" href="https://github.com/alexandra-vogt">GitHub</a></li>
+    
+      <li><a target="hugo_ext" href="https://uk.linkedin.com/in/avogt-1729">LinkedIn</a></li>
+    
+  </ul>
+  
+</nav>
+
+
+
+  </header>
+
+  <main>
+    
+<article>
+  <header>
+    <h1><a href="/posts/000-programmatic-beauty-i/">Programmatic Beauty I</a></h1>
+    <time datetime="2019-12-11 17:00:52 -0700 -0700">2019-12-11</time>
+  </header>
+
+  <div class="body">
+    <h3 id="assembly-lisp-and-turing-machines">Assembly, Lisp, and Turing Machines</h3>
+<p>I am sometimes overwhelmed by the sheer beauty of a concept in computer science to such a degree that I am moved to tears at points. To be totally honest it is probably this reaction to the beauty of computer science that makes me love learning more than any sort of pretense of productivity (though that matters too).</p>
+<p>In the interest of sharing the things I love with others I have created this little overview of the subjects that I find most beautiful and profound in computer science. I will also include links to things that I have found explain the subjects.</p>
+<h3 id="models-of-computation">Models of Computation</h3>
+<p>So a good thing to start off our discussion of the beauty of computers is the question of what a computer is. This is, for obvious reasons, something that has been considered by people far more intelligent than me for quite a bit longer than I have existed.</p>
+<h4 id="finite-state-machines">Finite State Machines</h4>
+<p>A FSM is exactly what it sounds like, a machine with a finite number of states. That is to say that the machine, based upon some input may go to any finite number of states during execution. Finite state machines do not need to halt during the execution of their tasks and may loop endlessly between a number of the states that they may be in.</p>
+<p>Among the set of finite state machines are regular expressions and flowcharts. You can imagine a finite state machine as a flowchart, though that ultimately would be limiting as the set of finite state machines includes things that are rather thoroughly not flow charts.Rather imagine it like a</p>
+<p>Incidentally all computers are actually just finite state machines that have delusions of being Turing machines.</p>
+<p><a href="https://en.wikipedia.org/wiki/Regular_expression">Regex, a subset of finite state machines.</a></p>
+<p><a href="https://regexr.com/">Regex builder online.</a></p>
+<h4 id="turing-machines">Turing Machines</h4>
+<p>So what is a Turing machine and why do computers have Turing machines?</p>
+<p>Well a Turing machine is a machine that can do all computable things.</p>
+<p>It is a machine with a head that can read and write to a infinitely long tape. It reads symbols one at a time and, based on the symbols, moves the head and places symbols on the tape. This really simple machine can do all the (computable) things.</p>
+<p>So what does the phrase &ldquo;all computable things&rdquo; mean?</p>
+<p>That is to say that it can do literally anything that you can do by following a some algorithm in finite time, which quite probably is also everything that you can do (well except for when you might output random garbage data), though some <em>heathens</em> insist otherwise. If you can in theory devise some list of instructions to accomplish a task then that task can be done with a Turing machine. This set is, as you can imagine, not a small one, though it is a small infinite one.</p>
+<p>Of course a function that is <em>computable</em> may not be <em>efficiently computable</em>
+and indeed may take a little while. Things such as cracking AES-256 are <em>computable</em> but
+may take you a little while longer than an evening if you tried it on your laptop. Though
+eventually it will halt. Probably sometime when the sun expands to engulf the earth and
+the heat death of the universe, but still, it will halt.</p>
+<p>That also is to say that there are a rather large (in fact 2^aleph-null) set of things
+that a Turing machine simply cannot do. Things such as the Entschedungsproblem or the
+Busy Beaver function are non computable. This is to say that you cannot find their answer
+by some algorithm. That the knowledge of their answers must come either from some
+theoretical hypercomputer or chance, and even more distressingly the correctness of the
+answer not even be verifiable.</p>
+<p>Though fear not dear reader, for we have an <em>infinite</em> number of computable things that we
+can mess around with. Though here we do have one more constraint that makes that set much
+smaller than infinity. You see, the universe appears to be finite, or at least the bit we
+can know due to c being as it is. Thus we cannot construct a Turing machine with an infinite
+tape, but rather we must settle with Turing machines with finite tapes, which then are
+simply finite state machines.</p>
+<p>&ldquo;But wait&rdquo;, you may say, &ldquo;I heard <em>x</em> was Turing complete&rdquo;, and indeed you probably have
+and indeed those people are wrong. Mind, they probably even know that they are wrong. Now,
+dear reader, you may be experiencing a bit of betrayal. Well it&rsquo;s not that wrong to say
+that, in fact it is a good way to simplify the matter without including unnecessary and
+pedantic details about things such as word size and addressing. Of course though, since I
+love unsessecary and pedantic details.</p>
+<p>You see, most languages are <em>pretty much</em> Turing complete. Sure, you could visit all the
+states a 64 bit computer with a 64 gigabytes of ram in finite time, but that would be
+finite time in precisely the same way that a <a href="http://www.authorama.com/story-of-mankind-3.html">day of eternity</a>
+is. Well, actually it probably would take even longer than a day of eternity. Though
+just because the set of all possible states of a computer is large, the set of useful
+states appears to be slightly smaller.</p>
+<p><a href="https://www.youtube.com/watch?v=dNRDvLACg5Q">Video explaining Turing machines.</a></p>
+<p><a href="https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/turing-machine/one.html">Article on Turing machines</a></p>
+<p><a href="https://turingmachine.io/">Turing machine simulation.</a></p>
+<h3 id="lisp">Lisp</h3>
+<p>(Lisp ((is that strange language) with (all the parentheses everywhere)))</p>
+<p>No, that isn&rsquo;t right, Lisp means List Processor.</p>
+<p>Doesn&rsquo;t it do more than just lists? Like something with ASTs?</p>
+<p>Wait, it has something about data as code too, right?</p>
+<p>To the average person all programming languages are alien, but only Lisp manages to seem
+alien to most programmers as well. To many they do not see the point, what is it with
+the ugly parentheses and terrible syntax? What is a cdr and why is it have a car? Why are
+so many programmers insane and thus love this ugly, terrible language?</p>
+<p>The answer to the last one is simple, it is because Lisp is actually quite beautiful (and
+the people who love Lisp are insane).</p>
+<p>Lisp represents everything as a linked lists. Code is just linked lists that the language
+then executes. The parentheses are simply a notation for these lists. In the list world
+&lsquo;(this is a list) and (this-is-a-function &lsquo;(that operates on a list)).</p>
+<p>Functions can work with lists of instructions just like they would with any other list.
+You can basically concatenate functions the same way you may concatenate lists if you want
+and Lisp will let you do so freely.</p>
+<p>In Lisp the lack of syntax is not a bug, but rather its ultimate feature for code can
+easily be treated as data.</p>
+<p><a href="https://www.racket-lang.org">Racket website.</a></p>
+<p><a href="https://www.jdoodle.com/execute-racket-online/">Online racket REPL.</a></p>
+<p><a href="https://common-lisp.net/">Common lisp website.</a></p>
+<p><a href="https://www.tutorialspoint.com/execute_lisp_online.php">Online lisp REPL.</a></p>
+<h4 id="code-as-data">Code as Data</h4>
+<p>Code as data is a common concept in the Lisp world. Code is data. But what does that actually <em>mean</em> on a fundamental level? I mean it&rsquo;s obviously true that code is in fact data: code exists in a computer and is executed by it; hence data. But with Lisp there is a somewhat deeper meaning than the surface level, in Lisp the code is written as lists of instructions that are executed.</p>
+<p>And lists are what Lisp excels at processing.</p>
+<p>Thus lisp allows you to manipulate code as naturally as it might manipulate any other bit of data in the world, making it easy to extend the language with a variety of abstractions via macros.</p>
+<p>Macros are functions that take bits of lisp code, preform arbitrary computation on them, and then spit out some other lisp code at the macroexpansion phase of lisp evaluation. Now what does that <em>mean</em> in a practical sense. Sure, it&rsquo;s a good paper reactor, but will it ever become a real reactor? <del>Well yes, it too can become become heavy and bloated, just look at Emacs.</del> Yes, and it means that you can write code far more efficiently than you could in the past by creating as many layers of abstraction as you want around something with total freedom to design whatever data structures you desire.</p>
+<p>This is the beauty of lisp, it&rsquo;s not a language, but rather a toolkit for defining your own little dialect to solve your problems.</p>
+<h4 id="data-as-code">Data as Code</h4>
+<p>In a way every program is a finite state machine that receives information from the outside world as its code. When you write a file system and tools to manage it those tools parse the system in a way not dissimilar to a language.</p>
+<hr>
+<p>So as a final note, I hope that those of you who managed to stick through this post to the end find some beauty in computer science. If you are not in in computer science and found these things to be beautiful as well, I would suggest that you look into it for the sense of beauty gained from this post versus the sense gained from experience is as the beauty of a particular vista in photo versus that same vista in person.</p>
+
+  </div>
+
+  
+</article>
+
+
+<div class="pagination">
+  <div class="left">
+  
+  </div>
+  <div class="right">
+  
+    <a href="/posts/001-hy-for-fun-and-profit/">
+      <time datetime="2020-05-08 17:00:52 -0700 PDT">2020-05-08 &raquo;</time>
+      Hy for Fun and Profit
+    </a>
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+  </main>
+
+  
+  <footer>
+    
+
+    
+
+    
+<nav>
+  
+  <ul>
+    
+    
+
+    
+      <li><a href="https://vogt.systems/resume.pdf">Resume</a></li>
+    
+  </ul>
+  
+
+  
+  <ul>
+    
+      <li><a target="hugo_ext" href="https://twitter.com/asmesthetician">Twitter</a></li>
+    
+      <li><a target="hugo_ext" href="https://github.com/alexandra-vogt">GitHub</a></li>
+    
+      <li><a target="hugo_ext" href="https://uk.linkedin.com/in/avogt-1729">LinkedIn</a></li>
+    
+  </ul>
+  
+</nav>
+
+
+
+    <p>&copy; 2020 <a href="">Assembly Esthetician</a></p>
+  </footer>
+  
+
+</body>
+
+</html>

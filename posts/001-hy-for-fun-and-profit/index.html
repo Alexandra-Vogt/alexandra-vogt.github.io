@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Hy for Fun and Profit | blog.vogt.systems</title>
+
+  <meta name="author" content="" />
+
+  
+  <meta name="keywords" content="software engineering, lisp, emacs, guix, distributed computing, nixos, assembly">
+  
+
+  
+  <meta name="description" content="An exploration of Hy, a fun, awesome, and sometimes strange Lisp superset of Python.">
+  
+
+  <meta name="generator" content="Hugo 0.70.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="/logo.png" rel="shortcut icon">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+
+  
+</head>
+
+<body>
+
+  <header>
+    <div class="left logo">
+      <h1><a href="/">Assembly Esthetician</a></h1>
+      <p>The writings of a lambdamancer gone rogue.</p>
+    </div>
+
+    
+<nav>
+  
+  <ul>
+    
+    
+
+    
+      <li><a href="https://vogt.systems/resume.pdf">Resume</a></li>
+    
+  </ul>
+  
+
+  
+  <ul>
+    
+      <li><a target="hugo_ext" href="https://twitter.com/asmesthetician">Twitter</a></li>
+    
+      <li><a target="hugo_ext" href="https://github.com/alexandra-vogt">GitHub</a></li>
+    
+      <li><a target="hugo_ext" href="https://uk.linkedin.com/in/avogt-1729">LinkedIn</a></li>
+    
+  </ul>
+  
+</nav>
+
+
+
+  </header>
+
+  <main>
+    
+<article>
+  <header>
+    <h1><a href="/posts/001-hy-for-fun-and-profit/">Hy for Fun and Profit</a></h1>
+    <time datetime="2020-05-08 17:00:52 -0700 PDT">2020-05-08</time>
+  </header>
+
+  <div class="body">
+    <h3 id="well-maybe-not-profit">Well maybe not profit…</h3>
+<p>Python is a language famous for being so similar to natural languages that it appears to be almost the same as pseudocode. This has resulted in it becoming tremendously popular and given it a massive ecosystem of different libraries that allow you to do all sorts of interesting things: from scientific computing to cluster automation Python does everything. Python also serves as a good language for beginners and thus, unfortunately, is often looked down on for not being a sufficiently 1337 programming language.</p>
+<p>Lisp is a family of different languages that all use prefix notation, a syntax based on S-expressions, and have macros that allow the user to trivially extend the language with what amounts to their own DSL for better or for worse. Lisps also tend to be fairly alien in terms of syntax though they do as a whole have a fairly regular syntax making them easy to understand and use. They also are infamous for allowing the user to feel absolutely superior to any other programmer- though Haskell and Rust have begun to threaten it in this regard.</p>
+<p>Hy is the progeny of both Lisp and Python and thus has traits of both. It works well for personal projects and I have used it extensively in my attempts to produce a more automated desktop environment for myself. From automatic invoice generation to my own taskwarrior extensions that alert me to upcoming tasks Hy has been extremely enjoyable.</p>
+<h3 id="the-good">The Good</h3>
+<h4 id="macros">Macros</h4>
+<p>The first thing that made me love Hy was it&rsquo;s macros. There is something magical about being able to write macros to simplify work in Python. Really, macros make Python so much more fun to use as they allow for expanded introspection and the development of small DSL like language extensions that are more clear than the usual operator overloading in Python.</p>
+<h4 id="consistent-syntax">Consistent Syntax</h4>
+<p>The syntax of Hy, like all Lisps, is fairly consistent. Obviously there are some things such as quoting lists or other such shorthand that makes the syntax not completely regular, but it is far more consistent than in Python. The context free syntax also allows for structure editing and other nice advanced text editor features, something that the non context free Python cannot easily use.</p>
+<h4 id="a-decent-repl">A Decent REPL</h4>
+<p>The Hy REPL is not perfect, but it is far better than the Python REPL. Because you can execute code one s-expression at a time you can easily incrementally build your own programs and test out your program as you go along on a much more granular level than with Python.</p>
+<h3 id="the-bad">The Bad</h3>
+<h4 id="startup-times">Startup Times</h4>
+<p>Our first problem will be that the startup time of the transpiler and interpreter stack can be rather excessive seconds. Consider the code below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hy" data-lang="hy"><span style="color:#f92672">#</span>!/usr/bin/env hy
+
+(<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;hello world&#34;</span>)
+</code></pre></div><p>The first time execution of the code took a total of 0.775 seconds. After that it took a total of 0.09 seconds to execute. The latter time is not as terrible as the initial execution time, but is still fairly bad. Contrast with python which takes 0.03 seconds to execute the same script and requires that time for every execution of the script.</p>
+<h4 id="low-adoption">Low Adoption</h4>
+<p>The second problem is the lack of good IDE features. From my perspective REPL makes up for this, but many people would obviously disagree and I cannot deny that the lack of autocompletion and other similar fetures is regrettable.</p>
+
+  </div>
+
+  
+</article>
+
+
+<div class="pagination">
+  <div class="left">
+  
+    <a href="/posts/000-programmatic-beauty-i/">
+      <time datetime="2019-12-11 17:00:52 -0700 -0700">&laquo; 2019-12-11</time>
+      Programmatic Beauty I
+    </a>
+  
+  </div>
+  <div class="right">
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+  </main>
+
+  
+  <footer>
+    
+
+    
+
+    
+<nav>
+  
+  <ul>
+    
+    
+
+    
+      <li><a href="https://vogt.systems/resume.pdf">Resume</a></li>
+    
+  </ul>
+  
+
+  
+  <ul>
+    
+      <li><a target="hugo_ext" href="https://twitter.com/asmesthetician">Twitter</a></li>
+    
+      <li><a target="hugo_ext" href="https://github.com/alexandra-vogt">GitHub</a></li>
+    
+      <li><a target="hugo_ext" href="https://uk.linkedin.com/in/avogt-1729">LinkedIn</a></li>
+    
+  </ul>
+  
+</nav>
+
+
+
+    <p>&copy; 2020 <a href="">Assembly Esthetician</a></p>
+  </footer>
+  
+
+</body>
+
+</html>

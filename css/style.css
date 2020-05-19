@@ -3,34 +3,38 @@
   padding: 0;
 }
 
-a, a:visited, a:active, a:hover {
-  color: #458588;
+a,
+a:visited,
+a:active,
+a:hover {
+  color: #d79921;
   text-decoration: none;
 }
 
 a:hover {
-  color: #83a598;
+  color: #d79921;
   text-decoration: underline;
 }
 
 .gopher::after {
-  content: '';
+  content: "";
   display: inline-block;
   vertical-align: top;
   animation: gopherwave 2s infinite;
 }
 
 .gopher:hover::after {
-  animation: gopherwave .5s infinite;
+  animation: gopherwave 0.5s infinite;
 }
 
 @keyframes gopherwave {
-  0%, 100% {
-    content: 'ˏʕ⚆ϖ⚆ʔˎ';
+  0%,
+  100% {
+    content: "ˏʕ⚆ϖ⚆ʔˎ";
     color: #689d6a;
   }
   50% {
-    content: '`ʕ◔ϖ◔ʔ´';
+    content: "`ʕ◔ϖ◔ʔ´";
     color: #8ec07c;
   }
 }
@@ -42,28 +46,30 @@ body {
   color: #ebdbb2;
   max-width: 60em;
   margin: 0 auto;
-  background-image: url('/bg.png');
+  background-image: url("/bg.png");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
 
-body>header::after {
-  content: '';
+body > header::after {
+  content: "";
   display: block;
   clear: both;
 }
 
-body>header, main, body>footer {
+body > header,
+main,
+body > footer {
   margin: 5em 0;
   padding: 0 2em;
 }
 
-body>footer {
+body > footer {
   text-align: center;
 }
 
-body>footer>* {
+body > footer > * {
   margin: 2em 0;
   display: block;
 }
@@ -80,7 +86,7 @@ body>footer>* {
 }
 
 .logo {
-  background: no-repeat top left/64px 64px url('../logo.png');
+  background: no-repeat top left/64px 64px url("../logo.png");
   min-height: 64px;
   padding: 0 0 0 calc(64px + 1em);
   margin-top: -1em;
@@ -89,25 +95,25 @@ body>footer>* {
   justify-content: flex-end;
 }
 
-body>header>.left>h1>a {
+body > header > .left > h1 > a {
   font-weight: normal;
-  color: #d79921;
+  color: #fabd2f;
 }
 
-body>header nav {
+body > header nav {
   text-align: right;
 }
 
-nav>ul {
+nav > ul {
   list-style-type: none;
-  margin: .75em 0;
+  margin: 0.75em 0;
 }
 
-nav>ul>li {
+nav > ul > li {
   display: inline;
 }
 
-nav>ul>li>a.active {
+nav > ul > li > a.active {
   text-decoration: underline;
 }
 
@@ -122,30 +128,33 @@ nav>ul>li>a.active {
   nav {
     margin: 2em 0;
   }
-  nav>ul {
+  nav > ul {
     text-align: center;
     display: block;
   }
-  body>header, main, body>footer, main>article {
+  body > header,
+  main,
+  body > footer,
+  main > article {
     margin: 3em 0;
   }
 }
 
 article {
-  background: rgba(235,219,178,.85);
+  background: #ebdbb2cc;
   color: #3c3836;
   padding: 2em;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, .25);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
   margin: 5em 0;
 }
 
-article>header {
+article > header {
   border-bottom: 1px solid #ebdbb2;
   margin-bottom: 1em;
   padding-bottom: 1em;
 }
 
-article>footer {
+article > footer {
   border-top: 1px solid #ebdbb2;
   margin-top: 1em;
   padding-top: 1em;
@@ -159,30 +168,31 @@ article>footer {
   display: inline-block;
 }
 
-article>header::after {
-  content: '';
+article > header::after {
+  content: "";
   display: block;
   clear: both;
 }
 
-article>header>h1 {
+article > header > h1 {
   float: left;
 }
 
-article>header>time, .disqus-comment-count {
+article > header > time,
+.disqus-comment-count {
   color: #7c6f64;
   float: right;
 }
 
-article>p {
+article > p {
   margin: 1em 0;
 }
 
-article>footer {
+article > footer {
   margin-top: 1em;
 }
 
-article>.body pre code {
+article > .body pre code {
   display: block;
   padding: 1em;
   margin: 2em;
@@ -192,9 +202,9 @@ article>.body pre code {
   overflow-x: auto;
 }
 
-article>.body code {
+article > .body code {
   display: inline;
-  padding: .05em .25em;
+  padding: 0.05em 0.25em;
   background: #ebdbb2;
   color: #282828;
   border-radius: 3px;
@@ -206,39 +216,46 @@ article>.body code {
   padding: 1em;
 }
 
-article>.body h1, article>.body h2, article>.body h3, article>.body h4, article>.body h5, article>.body h6 {
+article > .body h1,
+article > .body h2,
+article > .body h3,
+article > .body h4,
+article > .body h5,
+article > .body h6 {
   margin-top: 2em;
 }
 
-article>.body hr {
+article > .body hr {
   margin: 1em 0;
   border: 0;
   border-bottom: 1px solid #ebdbb2;
 }
 
-article>.body blockquote {
+article > .body blockquote {
   margin-left: 2em;
   padding-left: 2em;
-  border-left: 2px solid #ebdbb2;
+  border-left: 2px solid #282828cc;
 }
 
-article>.body ol, article>.body ul {
+article > .body ol,
+article > .body ul {
   margin-left: 3em;
 }
 
-article>.body {
+article > .body {
   line-height: 1.4em;
 }
 
-article>.body p {
+article > .body p {
   margin: 1em 0;
 }
 
-article>.body img {
+article > .body img {
   max-width: 100%;
 }
 
-.pagination .left, .pagination .right {
+.pagination .left,
+.pagination .right {
   display: inline-block;
   width: 50%;
   min-height: 1em;
@@ -248,7 +265,10 @@ article>.body img {
   text-align: right;
 }
 
-.pagination a, .pagination a:visited, .pagination a:active, .pagination a:hover {
+.pagination a,
+.pagination a:visited,
+.pagination a:active,
+.pagination a:hover {
   color: #d79921;
 }
 
@@ -258,5 +278,5 @@ article>.body img {
 
 .pagination time {
   display: block;
-  color: #665c54;
+  color: #bdae93;
 }

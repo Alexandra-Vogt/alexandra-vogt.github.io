@@ -6,27 +6,26 @@
     <description>Recent content in Posts on Assembly Esthetician</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Dec 2019 17:00:52 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 08 May 2020 17:00:52 -0700</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Programmatic Beauty I</title>
-      <link>/posts/flycheck_programmatic-beauty-i/</link>
-      <pubDate>Wed, 11 Dec 2019 17:00:52 -0700</pubDate>
+      <title>Hy for Fun and Profit</title>
+      <link>/posts/001-hy-for-fun-and-profit/</link>
+      <pubDate>Fri, 08 May 2020 17:00:52 -0700</pubDate>
       
-      <guid>/posts/flycheck_programmatic-beauty-i/</guid>
-      <description>Assembly, Lisp, and Turing Machines I am sometimes overwhelmed by the sheer beauty of a concept in computer science to such a degree that I am moved to tears at points. To be totally honest it is probably this reaction to the beauty of computer science that makes me love learning more than any sort of pretense of productivity (though that matters too).
-In the interest of sharing the things I love with others I have created this little overview of the subjects that I find most beautiful and profound in computer science.</description>
+      <guid>/posts/001-hy-for-fun-and-profit/</guid>
+      <description>Well maybe not profit… Python is a language famous for being so similar to natural languages that it appears to be almost the same as pseudocode. This has resulted in it becoming tremendously popular and given it a massive ecosystem of different libraries that allow you to do all sorts of interesting things: from scientific computing to cluster automation Python does everything. Python also serves as a good language for beginners and thus, unfortunately, is often looked down on for not being a sufficiently 1337 programming language.</description>
     </item>
     
     <item>
       <title>Programmatic Beauty I</title>
-      <link>/posts/programmatic-beauty-i/</link>
+      <link>/posts/000-programmatic-beauty-i/</link>
       <pubDate>Wed, 11 Dec 2019 17:00:52 -0700</pubDate>
       
-      <guid>/posts/programmatic-beauty-i/</guid>
+      <guid>/posts/000-programmatic-beauty-i/</guid>
       <description>Assembly, Lisp, and Turing Machines I am sometimes overwhelmed by the sheer beauty of a concept in computer science to such a degree that I am moved to tears at points. To be totally honest it is probably this reaction to the beauty of computer science that makes me love learning more than any sort of pretense of productivity (though that matters too).
 In the interest of sharing the things I love with others I have created this little overview of the subjects that I find most beautiful and profound in computer science.</description>
     </item>
