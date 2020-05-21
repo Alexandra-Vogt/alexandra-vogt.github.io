@@ -94,35 +94,11 @@
 <p>It is a machine with a head that can read and write to a infinitely long tape. It reads symbols one at a time and, based on the symbols, moves the head and places symbols on the tape. This really simple machine can do all the (computable) things.</p>
 <p>So what does the phrase &ldquo;all computable things&rdquo; mean?</p>
 <p>That is to say that it can do literally anything that you can do by following a some algorithm in finite time, which quite probably is also everything that you can do (well except for when you might output random garbage data), though some <em>heathens</em> insist otherwise. If you can in theory devise some list of instructions to accomplish a task then that task can be done with a Turing machine. This set is, as you can imagine, not a small one, though it is a small infinite one.</p>
-<p>Of course a function that is <em>computable</em> may not be <em>efficiently computable</em>
-and indeed may take a little while. Things such as cracking AES-256 are <em>computable</em> but
-may take you a little while longer than an evening if you tried it on your laptop. Though
-eventually it will halt. Probably sometime when the sun expands to engulf the earth and
-the heat death of the universe, but still, it will halt.</p>
-<p>That also is to say that there are a rather large (in fact 2^aleph-null) set of things
-that a Turing machine simply cannot do. Things such as the Entschedungsproblem or the
-Busy Beaver function are non computable. This is to say that you cannot find their answer
-by some algorithm. That the knowledge of their answers must come either from some
-theoretical hypercomputer or chance, and even more distressingly the correctness of the
-answer not even be verifiable.</p>
-<p>Though fear not dear reader, for we have an <em>infinite</em> number of computable things that we
-can mess around with. Though here we do have one more constraint that makes that set much
-smaller than infinity. You see, the universe appears to be finite, or at least the bit we
-can know due to c being as it is. Thus we cannot construct a Turing machine with an infinite
-tape, but rather we must settle with Turing machines with finite tapes, which then are
-simply finite state machines.</p>
-<p>&ldquo;But wait&rdquo;, you may say, &ldquo;I heard <em>x</em> was Turing complete&rdquo;, and indeed you probably have
-and indeed those people are wrong. Mind, they probably even know that they are wrong. Now,
-dear reader, you may be experiencing a bit of betrayal. Well it&rsquo;s not that wrong to say
-that, in fact it is a good way to simplify the matter without including unnecessary and
-pedantic details about things such as word size and addressing. Of course though, since I
-love unsessecary and pedantic details.</p>
-<p>You see, most languages are <em>pretty much</em> Turing complete. Sure, you could visit all the
-states a 64 bit computer with a 64 gigabytes of ram in finite time, but that would be
-finite time in precisely the same way that a <a href="http://www.authorama.com/story-of-mankind-3.html">day of eternity</a>
-is. Well, actually it probably would take even longer than a day of eternity. Though
-just because the set of all possible states of a computer is large, the set of useful
-states appears to be slightly smaller.</p>
+<p>Of course a function that is <em>computable</em> may not be <em>efficiently computable</em> and indeed may take a little while. Things such as cracking AES-256 are <em>computable</em> but may take you a little while longer than an evening if you tried it on your laptop. Though eventually it will halt. Probably sometime when the sun expands to engulf the earth and the heat death of the universe, but still, it will halt.</p>
+<p>That also is to say that there are a rather large (in fact 2^aleph-null) set of things that a Turing machine simply cannot do. Things such as the Entschedungsproblem or the Busy Beaver function are non computable. This is to say that you cannot find their answer by some algorithm. That the knowledge of their answers must come either from some theoretical hypercomputer or chance, and even more distressingly the correctness of the answer not even be verifiable.</p>
+<p>Though fear not dear reader, for we have an <em>infinite</em> number of computable things that we can mess around with. Though here we do have one more constraint that makes that set much smaller than infinity. You see, the universe appears to be finite, or at least the bit we can know due to c being as it is. Thus we cannot construct a Turing machine with an infinite tape, but rather we must settle with Turing machines with finite tapes, which then are simply finite state machines.</p>
+<p>&ldquo;But wait&rdquo;, you may say, &ldquo;I heard <em>x</em> was Turing complete&rdquo;, and indeed you probably have and indeed those people are wrong. Mind, they probably even know that they are wrong. Now, dear reader, you may be experiencing a bit of betrayal. Well it&rsquo;s not that wrong to say that, in fact it is a good way to simplify the matter without including unnecessary and pedantic details about things such as word size and addressing. Of course though, since I love unsessecary and pedantic details.</p>
+<p>You see, most languages are <em>pretty much</em> Turing complete. Sure, you could visit all the states a 64 bit computer with a 64 gigabytes of ram in finite time, but that would be finite time in precisely the same way that a <a href="https://books.google.com/books?id=RskHAAAAIAAJ&amp;pg=PA1">day of eternity</a> is. Well, actually it probably would take even longer than a day of eternity. Though just because the set of all possible states of a computer is large, the set of useful states appears to be slightly smaller.</p>
 <p><a href="https://www.youtube.com/watch?v=dNRDvLACg5Q">Video explaining Turing machines.</a></p>
 <p><a href="https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/turing-machine/one.html">Article on Turing machines</a></p>
 <p><a href="https://turingmachine.io/">Turing machine simulation.</a></p>
@@ -131,20 +107,11 @@ states appears to be slightly smaller.</p>
 <p>No, that isn&rsquo;t right, Lisp means List Processor.</p>
 <p>Doesn&rsquo;t it do more than just lists? Like something with ASTs?</p>
 <p>Wait, it has something about data as code too, right?</p>
-<p>To the average person all programming languages are alien, but only Lisp manages to seem
-alien to most programmers as well. To many they do not see the point, what is it with
-the ugly parentheses and terrible syntax? What is a cdr and why is it have a car? Why are
-so many programmers insane and thus love this ugly, terrible language?</p>
-<p>The answer to the last one is simple, it is because Lisp is actually quite beautiful (and
-the people who love Lisp are insane).</p>
-<p>Lisp represents everything as a linked lists. Code is just linked lists that the language
-then executes. The parentheses are simply a notation for these lists. In the list world
-&lsquo;(this is a list) and (this-is-a-function &lsquo;(that operates on a list)).</p>
-<p>Functions can work with lists of instructions just like they would with any other list.
-You can basically concatenate functions the same way you may concatenate lists if you want
-and Lisp will let you do so freely.</p>
-<p>In Lisp the lack of syntax is not a bug, but rather its ultimate feature for code can
-easily be treated as data.</p>
+<p>To the average person all programming languages are alien, but only Lisp manages to seem alien to most programmers as well. To many they do not see the point, what is it with the ugly parentheses and terrible syntax? What is a cdr and why is it have a car? Why are so many programmers insane and thus love this ugly, terrible language?</p>
+<p>The answer to the last one is simple, it is because Lisp is actually quite beautiful (and the people who love Lisp are insane).</p>
+<p>Lisp represents everything as a linked lists. Code is just linked lists that the language then executes. The parentheses are simply a notation for these lists. In the list world &lsquo;(this is a list) and (this-is-a-function &lsquo;(that operates on a list)).</p>
+<p>Functions can work with lists of instructions just like they would with any other list. You can basically concatenate functions the same way you may concatenate lists if you want and Lisp will let you do so freely.</p>
+<p>In Lisp the lack of syntax is not a bug, but rather its ultimate feature for code can easily be treated as data.</p>
 <p><a href="https://www.racket-lang.org">Racket website.</a></p>
 <p><a href="https://www.jdoodle.com/execute-racket-online/">Online racket REPL.</a></p>
 <p><a href="https://common-lisp.net/">Common lisp website.</a></p>
