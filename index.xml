@@ -6,10 +6,19 @@
     <description>Recent content on Assembly Esthetician</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 May 2020 17:44:36 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2020 13:15:15 -0700</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Game Dev</title>
+      <link>/posts/003-game-dev-/</link>
+      <pubDate>Tue, 16 Jun 2020 13:15:15 -0700</pubDate>
+      
+      <guid>/posts/003-game-dev-/</guid>
+      <description>Or how I learned to stop worrying and love the frontend. So I developed a game called cubes, a bullet hell style game inspired by Superhot to both get over my distaste for frontend coding and to learn Clojurescript for future projects. Ultimately it was successful though it also presented a few insights about the nature of game development that would mean that I would approach things differently in the future.</description>
+    </item>
     
     <item>
       <title>Cyber Eyepatch I</title>

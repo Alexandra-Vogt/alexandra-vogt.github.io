@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Game Dev | blog.vogt.systems</title>
+
+  <meta name="author" content="" />
+
+  
+  <meta name="keywords" content="software engineering, lisp, emacs, guix, distributed computing, nixos, assembly">
+  
+
+  
+  <meta name="description" content="The writings of a lambdamancer gone rogue.">
+  
+
+  <meta name="generator" content="Hugo 0.72.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="/logo.png" rel="shortcut icon">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+
+  
+</head>
+
+<body>
+
+  <header>
+    <div class="left logo">
+      <h1><a href="/">Assembly Esthetician</a></h1>
+      <p>The writings of a lambdamancer gone rogue.</p>
+    </div>
+
+    
+<nav>
+  
+  <ul>
+    
+    
+
+    
+      <li><a href="https://vogt.systems/resume.pdf">Resume</a></li>
+    
+      <li><a href="https://vogt.systems">Website</a></li>
+    
+  </ul>
+  
+
+  
+  <ul>
+    
+      <li><a target="hugo_ext" href="https://twitter.com/asmesthetician">Twitter</a></li>
+    
+      <li><a target="hugo_ext" href="https://github.com/alexandra-vogt">GitHub</a></li>
+    
+      <li><a target="hugo_ext" href="https://uk.linkedin.com/in/avogt-1729">LinkedIn</a></li>
+    
+  </ul>
+  
+</nav>
+
+
+
+  </header>
+
+  <main>
+    
+<article>
+  <header>
+    <h1><a href="/posts/003-game-dev-/">Game Dev</a></h1>
+    <time datetime="2020-06-16 13:15:15 -0700 PDT">2020-06-16</time>
+  </header>
+
+  <div class="body">
+    <h3 id="or-how-i-learned-to-stop-worrying-and-love-the-frontend">Or how I learned to stop worrying and love the frontend.</h3>
+<p>So I developed a game called <a href="https://blog.vogt.systems/cubes-site">cubes</a>, a bullet hell style game inspired by Superhot to both get over my distaste for frontend coding and to learn Clojurescript for future projects. Ultimately it was successful though it also presented a few insights about the nature of game development that would mean that I would approach things differently in the future.</p>
+<h3 id="developing-cubes">Developing Cubes</h3>
+<p>So I have long been equal parts afraid of and revolted by frontend development. It just seemed like something that kind of sucked and lacked the fun of developing interesting code to do various things with cool datastructures and instead was just a mountain of state with another mountain of odd callbacks. So it ultimately remained a weakness of mine and honestly prevented me from enjoying what I now see as a fairly significant part of software development.</p>
+<p>Initially when writing <code>cubes</code> I did not know where to start. I had programmed in Clojure before but I had neither experience in coding in Clojurescript, any experience in using <a href="https://www.quil.info">Quil</a>, nor any experience developing a game with a GUI. So I did what any good developer would: I looked at someone else&rsquo;s code to see if I could steal some of their insights. Specifically I looked at the cool <a href="https://github.com/OrBaruk/squares-lgj/">squares lgi</a> game which you can play <a href="https://orbaruk.github.io/">here</a>. So off I went, developing my first program that had a more than nominal GUI and my first proper videogame.</p>
+<h3 id="insights">Insights</h3>
+<p>Jumping into game dev was fun, but it also had some features that I had not initially anticipated or really had properly considered the implications of. So let&rsquo;s go over them.</p>
+<h4 id="generally-functions-ought-to-know-only-as-much-as-they-need-to-know">Generally functions ought to know only as much as they need to know.</h4>
+<p>Never pass a complete datastructure to a function when you can pass only a part of that structure. Early on I decided to pass the entire state datastructure to functions that really did not need that datastructure in order to do what they needed to do. Thus when I wanted to rename sections of it or other similar things I quickly found that was difficult as I would have to track down every single place it was referenced. Examples of problematic functions include the <code>update-enemy-pos</code> function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#66d9ef">defn </span>update-enemy-pos [state]
+  (<span style="color:#66d9ef">let </span>[speed (<span style="color:#e6db74">:speed</span> state)]
+	(<span style="color:#a6e22e">-&gt;&gt;</span> (<span style="color:#e6db74">:enemies</span> state)
+		 (map (<span style="color:#66d9ef">fn </span>[enemy]
+				{<span style="color:#e6db74">:x</span> (<span style="color:#e6db74">:x</span> enemy)
+				 <span style="color:#e6db74">:y</span> (+ (<span style="color:#e6db74">:y</span> enemy) (* (<span style="color:#e6db74">:speed-mul</span> enemy) speed))
+				 <span style="color:#e6db74">:speed-mul</span> (<span style="color:#e6db74">:speed-mul</span> enemy)})))))
+</code></pre></div><h4 id="the-engine-ought-to-be-the-sole-component-manages-the-state-of-the-game">The engine ought to be the sole component manages the state of the game.</h4>
+<p>At the start of the game I was rather confused about how the game should be developed. I sort of understood that the state function would mutate the state and modify how the game worked, but I did not know how it ought to do so. So the function sort of spread into three functions (one for each stage). And those three functions sort of turned into monsters of interlaced state. The worst example would probably be the <code>game-stage</code> function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#66d9ef">defn </span>game-stage
+  <span style="color:#e6db74">&#34;The function that executes during the game stage.&#34;</span>
+  [state]
+  (<span style="color:#66d9ef">let </span>[player-speed-x (+ (<span style="color:#e6db74">:speed-x</span> (<span style="color:#e6db74">:player</span> state)) (<span style="color:#a6e22e">io/get-input-horizontal</span>))
+		player-speed-y (max <span style="color:#ae81ff">0</span>
+							(min <span style="color:#ae81ff">16</span> (+ (<span style="color:#e6db74">:speed-y</span> (<span style="color:#e6db74">:player</span> state)) (<span style="color:#a6e22e">io/get-input-vertical</span>))))
+		player-x (+ (<span style="color:#e6db74">:x</span> (<span style="color:#e6db74">:player</span> state)) player-speed-x)
+		player-y (<span style="color:#e6db74">:y</span> (<span style="color:#e6db74">:player</span> state))
+		speed (<span style="color:#a6e22e">q/sqrt</span> (+ (<span style="color:#a6e22e">q/pow</span> (max player-speed-x (- player-speed-x)) <span style="color:#ae81ff">2</span>) (<span style="color:#a6e22e">q/pow</span> player-speed-y <span style="color:#ae81ff">2</span>)))
+		distance (<span style="color:#e6db74">:distance</span> state)
+		player-killed (<span style="color:#a6e22e">engine/player-killed?</span> state)
+		point-cubes (<span style="color:#66d9ef">if </span>(and (= <span style="color:#ae81ff">0</span> (<span style="color:#a6e22e">mod</span> (<span style="color:#e6db74">:time</span> state) <span style="color:#ae81ff">128</span>))
+							 (&lt; <span style="color:#ae81ff">0.4</span> (max speed (- speed))))
+					  (conj (<span style="color:#a6e22e">engine/update-point-cube-pos</span> state)
+							{<span style="color:#e6db74">:x</span> (<span style="color:#a6e22e">q/random</span> <span style="color:#ae81ff">-350</span> <span style="color:#ae81ff">330</span>)
+							 <span style="color:#e6db74">:y</span> <span style="color:#ae81ff">-400</span>
+							 <span style="color:#e6db74">:speed-mul</span> (<span style="color:#a6e22e">q/random</span> <span style="color:#ae81ff">1.5</span> <span style="color:#ae81ff">0.5</span>)})
+					  (<span style="color:#a6e22e">engine/update-point-cube-pos</span> state))
+		enemies (<span style="color:#66d9ef">if </span>(and (= <span style="color:#ae81ff">0</span> (<span style="color:#a6e22e">mod</span> (<span style="color:#e6db74">:time</span> state)
+								   (max <span style="color:#ae81ff">1</span>
+										(int (/ <span style="color:#ae81ff">60</span> (inc (/ (+ <span style="color:#ae81ff">10</span> (<span style="color:#e6db74">:time</span> state)) <span style="color:#ae81ff">500</span>)))))))
+						 (&lt; <span style="color:#ae81ff">0.4</span> (max speed (- speed)))
+						 (&lt; <span style="color:#ae81ff">100</span> (<span style="color:#e6db74">:time</span> state)))
+				  (conj (<span style="color:#a6e22e">engine/update-enemy-pos</span> state)
+						{<span style="color:#e6db74">:x</span> (<span style="color:#a6e22e">q/random</span> <span style="color:#ae81ff">-350</span> <span style="color:#ae81ff">330</span>)
+						 <span style="color:#e6db74">:y</span> <span style="color:#ae81ff">-400</span>
+						 <span style="color:#e6db74">:speed-mul</span> (<span style="color:#a6e22e">q/random</span> <span style="color:#ae81ff">1.5</span> <span style="color:#ae81ff">0.5</span>)})
+				  (<span style="color:#a6e22e">engine/update-enemy-pos</span> state))]
+	{<span style="color:#e6db74">:speed</span> speed
+	 <span style="color:#e6db74">:distance</span> (+ distance speed)
+	 <span style="color:#e6db74">:player</span> {<span style="color:#e6db74">:x</span> player-x
+			  <span style="color:#e6db74">:y</span> player-y
+			  <span style="color:#e6db74">:speed-x</span> player-speed-x
+			  <span style="color:#e6db74">:speed-y</span> player-speed-y}
+	 <span style="color:#e6db74">:enemies</span> enemies
+	 <span style="color:#e6db74">:point-cubes</span> point-cubes
+	 <span style="color:#e6db74">:time</span> (inc (<span style="color:#e6db74">:time</span> state))
+	 <span style="color:#e6db74">:score</span> (<span style="color:#66d9ef">if </span>(&lt; (count point-cubes) (count (<span style="color:#e6db74">:point-cubes</span> state)))
+			  (inc (<span style="color:#e6db74">:score</span> state))
+			  (<span style="color:#e6db74">:score</span> state))
+	 <span style="color:#e6db74">:max-score</span> (<span style="color:#e6db74">:max-score</span> state)
+	 <span style="color:#e6db74">:ignore-keypress</span> (<span style="color:#66d9ef">if </span>player-killed
+						(<span style="color:#a6e22e">q/key-pressed?</span>)
+						false)
+	 <span style="color:#e6db74">:stage</span> (<span style="color:#66d9ef">if </span>player-killed
+			  <span style="color:#e6db74">&#34;score&#34;</span>
+			  <span style="color:#e6db74">&#34;game&#34;</span>)}))
+</code></pre></div><h4 id="rendering-ought-to-be-entirely-separated-from-the-state-of-the-game">Rendering ought to be entirely separated from the state of the game.</h4>
+<p>This means both that rendering ought to not mutate the state of the game but also that the engine should use internal units for distance and time instead of such things as pixels and frames. This is because unless internal units are used the game will forever be married to the rendering function and be unable to support different aspect ratios and displays. In the game I sort of managed to closely marry the rendering function to the stage of the game and also marry the engine to the render function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#66d9ef">defn </span>render-state [state]
+  (<span style="color:#a6e22e">q/background</span> <span style="color:#ae81ff">0</span>)
+  (<span style="color:#a6e22e">render-entities</span> state)
+  (<span style="color:#a6e22e">condp</span> = (<span style="color:#e6db74">:stage</span> state)
+	<span style="color:#e6db74">&#34;title&#34;</span> (<span style="color:#a6e22e">render-title</span> state)
+	<span style="color:#e6db74">&#34;game&#34;</span> (<span style="color:#a6e22e">render-game</span> state)
+	<span style="color:#e6db74">&#34;score&#34;</span> (<span style="color:#a6e22e">render-score</span> state)))
+</code></pre></div><h3 id="conclusion">Conclusion</h3>
+<p>Overall developing the game gave me new insights on managing lots of shared state and writing frontend software. Clojurescript really did deliver a nice, relaxing frontend development experience that did not contain anything too shocking or strange. I hope that my next forays into game design and frontend development are also this productive and enjoyable.</p>
+
+  </div>
+
+  
+</article>
+
+
+<div class="pagination">
+  <div class="left">
+  
+    <a href="/posts/002-eyepatch/">
+      <time datetime="2020-05-30 17:44:36 -0700 PDT">&laquo; 2020-05-30</time>
+      Cyber Eyepatch I
+    </a>
+  
+  </div>
+  <div class="right">
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+  </main>
+
+  
+  <footer>
+    
+
+    
+
+    
+<nav>
+  
+  <ul>
+    
+    
+
+    
+      <li><a href="https://vogt.systems/resume.pdf">Resume</a></li>
+    
+      <li><a href="https://vogt.systems">Website</a></li>
+    
+  </ul>
+  
+
+  
+  <ul>
+    
+      <li><a target="hugo_ext" href="https://twitter.com/asmesthetician">Twitter</a></li>
+    
+      <li><a target="hugo_ext" href="https://github.com/alexandra-vogt">GitHub</a></li>
+    
+      <li><a target="hugo_ext" href="https://uk.linkedin.com/in/avogt-1729">LinkedIn</a></li>
+    
+  </ul>
+  
+</nav>
+
+
+
+    <p>&copy; 2020 <a href="">Assembly Esthetician</a></p>
+  </footer>
+  
+
+</body>
+
+</html>
